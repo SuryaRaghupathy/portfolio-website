@@ -1,0 +1,122 @@
+/* Base styles for the About Us page */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  overflow: hidden;
+}
+
+.home-container.dark-theme {
+  background-color: transparent;
+  color: #2596be;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.section-content {
+  padding: 20px;
+  margin: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .home-container {
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .section-content {
+    font-size: 0.9rem;
+  }
+
+  .aspiration-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aspiration-title,
+  .aspiration-content {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .section-content {
+    font-size: 0.8rem;
+  }
+
+  .aspiration-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aspiration-title,
+  .aspiration-content {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .section-content {
+    font-size: 0.75rem;
+  }
+
+  .aspiration-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aspiration-title,
+  .aspiration-content {
+    width: 100%;
+    text-align: left;
+  }
+}

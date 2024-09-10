@@ -1,0 +1,57 @@
+.Menu {
+  background-color: transparent;
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  min-height: 100vh;
+  width: 100%;
+  height: 100vh; /* Ensure it covers the full viewport height */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  position: fixed; /* Fixes the menu to the viewport */
+  top: 0;
+  right: 0;
+}
+
+.Header-flex {
+  display: flex;
+  justify-content: space-between; /* Centers items horizontally */
+  align-items: center; /* Centers items vertically */
+  padding-bottom: 10px;
+}
+
+.Menu-icons {
+  display: block; /* Show the icon on smaller screens */
+  padding: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 24px;
+}
+.Logo-style {
+  padding: 10px;
+  margin-left: 15px;
+}
+
+.Menu-content {
+  display: flex;
+  flex-direction: column;
+}
+.App-link-adjust {
+  padding: 10px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+@media (min-width: 40px) and(max-width: 375px) {
+  .Header-flex {
+    display: flex;
+    justify-content: space-between; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+  }
+  .Menu-content {
+    display: flex;
+    flex-direction: column;
+  }
+}

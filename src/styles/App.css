@@ -1,0 +1,404 @@
+/* Ensure the html and body elements take up the full height */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* The main App container */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* The content area */
+.App-content {
+  flex: 1;
+  display: flex; /* Allows the content to expand and push the footer to the bottom */
+}
+
+/* The footer */
+.App-footer {
+  background-color: transparent;
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 0%;
+  z-index: 1;
+  position: static; /* Ensures it's always at the bottom */
+}
+
+/* The header */
+.App-header {
+  background-color: transparent;
+  min-height: 12.7vh;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  z-index: 1;
+  position: static; /* Ensures it's always at the bottom */
+}
+
+.Header-flex {
+  display: flex;
+  justify-content: space-between; /* Centers items horizontally */
+  align-items: center; /* Centers items vertically */
+}
+.Logo-style {
+  padding: 10px;
+}
+.Options-flex {
+  display: flex;
+
+  position: relative;
+}
+
+.Links-container {
+  display: flex;
+  justify-content: space-around; /* Distributes links evenly */
+  align-items: center; /* Aligns items vertically in the center */
+  flex-wrap: nowrap; /* Prevents wrapping of items */
+}
+.Links-container.show {
+  display: block; /* Or any display type you prefer for the menu */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.App-link {
+  text-decoration: none;
+  color: black;
+  margin: 0 10px;
+}
+
+.Menu-icon {
+  display: none; /* Hide the icon by default */
+}
+/* Common container for content */
+.common-container {
+  flex: 1;
+  padding: 20px; /* Optional: Add padding for better spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  min-height: 65.7vh;
+  overflow-y: hidden;
+
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Use 400 for normal weight */
+  font-style: normal;
+  color: black; /* Ensure text color is visible */
+}
+.home-container {
+  position: relative; /* Ensure that particle background does not overlap content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-container.dark-theme {
+  color: #2596be;
+}
+
+.right-container {
+  justify-content: center;
+  align-items: center;
+  padding-left: 180px;
+  margin-top: 29%;
+  transition: opacity 6s ease-in-out;
+}
+.right-container.visible {
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+}
+
+.light-theme {
+  color: black;
+}
+
+.home-container::before {
+  content: "";
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent; /* Optional: Add a semi-transparent background for contrast */
+  z-index: 0; /* Ensure the background is below the content */
+}
+
+.common-container h1,
+.common-container p {
+  position: relative;
+  z-index: 1; /* Ensure content is above the background */
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Use 400 for normal weight */
+  font-style: normal;
+}
+.main-container {
+  display: flex;
+}
+
+/* styles/App.css */
+
+.App.dark-theme .App-header {
+  background-color: yellow;
+}
+
+.App-header.dark-theme {
+  background-color: transparent;
+  color: #2596be;
+  z-index: 1;
+}
+.App-footer.dark-theme {
+  background-color: transparent;
+  color: #2596be;
+  z-index: 1;
+}
+.App-link.dark-theme {
+  text-decoration: none;
+  color: #2596be;
+  margin: 0 10px;
+}
+
+.common-container.dark-theme {
+  flex: 1;
+  padding: 20px; /* Optional: Add padding for better spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  min-height: 65.7vh;
+  overflow-y: hidden;
+  background-color: transparent;
+  z-index: 1;
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  color: #2596be;
+}
+/* 
+/* .custom-hr {
+  /* border: none; */
+/* border-top: 2px solid black; /* Customize color and thickness */
+/* width: 80%; Adjust this value to make it lengthy */
+/* margin: 20px auto; Center the line */
+/* color: black; */
+/* } */
+/* .custom-hr.dark-theme-text { */
+/* Change border color for dark theme */
+/* color: #2596be; /* Apply color change if needed */
+/* } */
+@media (min-width: 1px) and(max-width: 344px) {
+  .App-header {
+    background-color: transparent;
+    min-height: 7vh;
+    text-align: center;
+    position: static; /* Ensures it's always at the bottom */
+  }
+  .common-container {
+    padding: 10px;
+    min-height: 85vh;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-container {
+    padding-left: 30px;
+  }
+}
+
+@media (min-width: 345px) and(max-width: 375px) {
+  .App-header {
+    background-color: transparent;
+    min-height: 3vh;
+    text-align: center;
+
+    position: static; /* Ensures it's always at the bottom */
+  }
+  .common-container {
+    padding: 10px;
+    min-height: 85vh;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-container {
+    padding-left: 30px;
+  }
+}
+@media (min-width: 375px) and (max-width: 480px) {
+  .App-header {
+    background-color: transparent;
+    min-height: 11vh;
+    text-align: center;
+    padding: 5px;
+    position: static; /* Ensures it's always at the bottom */
+  }
+
+  .common-container {
+    padding: 15px;
+
+    min-height: 90vh;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-container {
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+    margin-left: 20px;
+    margin-right: 2%;
+    margin-top: 12%;
+  }
+}
+@media (min-width: 481px) and (max-width: 540px) {
+  .App-header {
+    background-color: transparent;
+    min-height: 3vh;
+    text-align: center;
+    position: static; /* Ensures it's always at the bottom */
+  }
+  .common-container {
+    padding: 10px;
+    min-height: 71vh;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-container {
+    padding-left: 30px;
+  }
+}
+@media (min-width: 540px) and (max-width: 720px) {
+  .App-header {
+    background-color: transparent;
+    min-height: 3vh;
+    text-align: center;
+    position: static; /* Ensures it's always at the bottom */
+  }
+  .common-container {
+    padding: 10px;
+    min-height: 71vh;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-container {
+    padding-left: 12%;
+    padding-left: 30px;
+  }
+}
+@media (min-width: 768px) and (max-width: 819px) {
+  .App-header {
+    background-color: transparent;
+    min-height: 3vh;
+    text-align: center;
+    position: static; /* Ensures it's always at the bottom */
+  }
+  .common-container {
+    padding: 20px;
+    min-height: 60vh;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-container {
+    margin-top: 1%;
+    margin-bottom: 6%;
+    padding-left: 30px;
+  }
+}
+@media (min-width: 820px) and (max-width: 911px) {
+  .App-header {
+    background-color: transparent;
+    min-height: 6.4vh;
+    text-align: center;
+    position: static; /* Ensures it's always at the bottom */
+  }
+  .common-container {
+    padding: 20px;
+    min-height: 60vh;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-container {
+    margin-top: 1%;
+    margin-bottom: 10%;
+    padding-left: 30px;
+  }
+}
+@media (min-width: 912px) and (max-width: 1023px) {
+  .App-header {
+    background-color: transparent;
+    min-height: 6vh;
+    text-align: center;
+    padding: 10px;
+    position: static; /* Ensures it's always at the bottom */
+  }
+  .common-container {
+    padding: 25px;
+    min-height: 82vh;
+  }
+  .right-container {
+    margin-top: 110%;
+    padding-left: 30px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .App-header {
+    background-color: transparent;
+    min-height: 5vh;
+    text-align: center;
+    position: static; /* Ensures it's always at the bottom */
+  }
+  .common-container {
+    padding: 25px;
+    min-height: 82.2vh;
+  }
+  .right-container {
+    margin-top: 100%;
+    padding-left: 30px;
+  }
+}
+@media (max-width: 1280px) and (max-height: 800px) {
+  .right-container {
+    margin-top: 50%;
+    padding-left: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .Links-container {
+    display: none; /* Hide the links on smaller screens */
+  }
+  .Menu-icon {
+    display: block; /* Show the icon on smaller screens */
+    padding: 5px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .button {
+    padding-left: 20px;
+    padding-right: 70px;
+    margin: 5px;
+  }
+}
