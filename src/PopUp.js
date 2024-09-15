@@ -10,7 +10,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { Link } from "react-router-dom";
-
+import "./styles/App.css";
 const options = ["Light Theme", "Dark Theme"];
 
 function ConfirmationDialogRaw(props) {
@@ -35,9 +35,9 @@ function ConfirmationDialogRaw(props) {
   };
 
   const handleOk = () => {
-    console.log("Selected Theme:", value); // Log the selected radio button value
+    console.log("Selected Theme (in child):", value); // Log in the child
     onThemeChange(value); // Pass the selected value to the parent
-    onClose(value);
+    onClose();
   };
 
   const handleChange = (event) => {
@@ -85,13 +85,12 @@ ConfirmationDialogRaw.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   value: PropTypes.string.isRequired,
-  onThemeChange: PropTypes.func.isRequired, // Add this prop type
+  onThemeChange: PropTypes.func.isRequired,
 };
 
-export default function ConfirmationDialog({ onThemeChange }) {
-  // Accept onThemeChange as a prop
+export default function ConfirmationDialog({ value, onThemeChange }) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("Light Theme");
+  const [localValue, setLocalValue] = React.useState(value); // Renamed the local state variable
 
   const handleClickListItem = () => {
     setOpen(true);
@@ -101,7 +100,7 @@ export default function ConfirmationDialog({ onThemeChange }) {
     setOpen(false);
 
     if (newValue) {
-      setValue(newValue);
+      setLocalValue(newValue); // Update the local state
       onThemeChange(newValue); // Pass the selected value to the parent
     }
   };
@@ -109,9 +108,7 @@ export default function ConfirmationDialog({ onThemeChange }) {
   return (
     <List component="div" role="group">
       <Link
-        className={`App-link ${value
-          
-          === "Dark Theme" ? "dark-theme" : ""}`}
+        className={`App-link ${value === "Dark Theme" ? "dark-theme" : ""}`}
         onClick={handleClickListItem}
       >
         Appearance
@@ -121,13 +118,13 @@ export default function ConfirmationDialog({ onThemeChange }) {
         keepMounted
         open={open}
         onClose={handleClose}
-        value={value}
-        onThemeChange={onThemeChange} // Pass the callback to the raw dialog component
+        value={localValue} // Use the local state value
+        onThemeChange={onThemeChange}
       />
     </List>
   );
 }
 
 ConfirmationDialog.propTypes = {
-  onThemeChange: PropTypes.func.isRequired, // Add this prop type
+  onThemeChange: PropTypes.func.isRequired,
 };

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Skills from "./Skills";
 import AboutUs from "./aboutus";
-import Resume from "./Resume";
-import Portfolio from "./Portfolio";
+
 import Contact from "./Contact";
 import "./styles/App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +21,7 @@ function App() {
   const [theme, setTheme] = useState("Light Theme");
 
   const handleThemeChange = (newTheme) => {
-    console.log("Selected Theme:", newTheme);
+    console.log("Selected Theme (in parent):", newTheme); // Log in the parent
     setTheme(newTheme);
   };
 
@@ -33,7 +32,7 @@ function App() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
+  console.log(theme);
   return (
     <Router>
       <div className="App">
@@ -48,7 +47,11 @@ function App() {
             <button onClick={handleNextClick}>Next</button>
           </motion.div>
         ) : menuOpen ? (
-          <Menu onClose={toggleMenu} />
+          <Menu
+            theme={theme}
+            onClose={toggleMenu}
+            onThemeChange={handleThemeChange}
+          />
         ) : (
           <>
             <ParticleBackground theme={theme} />
@@ -85,22 +88,7 @@ function App() {
                     >
                       Skills and Certifications
                     </Link>
-                    <Link
-                      className={`App-link ${
-                        theme === "Dark Theme" ? "dark-theme" : ""
-                      }`}
-                      to="/resume"
-                    >
-                      Resume
-                    </Link>
-                    <Link
-                      className={`App-link ${
-                        theme === "Dark Theme" ? "dark-theme" : ""
-                      }`}
-                      to="/portfolio"
-                    >
-                      Portfolio
-                    </Link>
+
                     <Link
                       className={`App-link ${
                         theme === "Dark Theme" ? "dark-theme" : ""
@@ -110,7 +98,10 @@ function App() {
                       Contact
                     </Link>
                     <div>
-                      <ConfirmationDialog onThemeChange={handleThemeChange} />
+                      <ConfirmationDialog
+                        value={theme}
+                        onThemeChange={handleThemeChange}
+                      />
                     </div>
                   </div>
                 </div>
@@ -127,11 +118,7 @@ function App() {
                 <Route path="/" element={<Home theme={theme} />} />
                 <Route path="/about-us" element={<AboutUs theme={theme} />} />
                 <Route path="/skills" element={<Skills theme={theme} />} />
-                <Route path="/resume" element={<Resume theme={theme} />} />
-                <Route
-                  path="/portfolio"
-                  element={<Portfolio theme={theme} />}
-                />
+
                 <Route path="/contact" element={<Contact theme={theme} />} />
               </Routes>
             </main>
@@ -169,21 +156,23 @@ function Home({ theme }) {
             theme === "Dark Theme" ? "dark-theme" : ""
           }`}
         >
-          <h1>
-            <Typewriter
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString("<h1>Hello Team, I'm Surya</h1> <br>")
-                  .start()
-                  .pauseFor(500);
-                typewriter.typeString("Web Architect with SEO Expertise");
-              }}
-              options={{
-                autoStart: true,
-                delay: 80,
-              }}
-            />
-          </h1>
+          <div className="introtext-container">
+            <h1>
+              <Typewriter
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString("<h1>Hello Team, I'm Surya</h1> <br>")
+                    .start()
+                    .pauseFor(500);
+                  typewriter.typeString("Web Architect with SEO Expertise");
+                }}
+                options={{
+                  autoStart: true,
+                  delay: 80,
+                }}
+              />
+            </h1>
+          </div>
         </div>
       </div>
 

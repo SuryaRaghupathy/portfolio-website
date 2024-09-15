@@ -1,5 +1,5 @@
 .Menu {
-  background-color: transparent;
+  background-color: #2596be;
   overflow: hidden;
   text-align: center;
   padding: 10px;
@@ -36,12 +36,17 @@
 .Menu-content {
   display: flex;
   flex-direction: column;
+  background-color: #2596be;
 }
+
 .App-link-adjust {
   padding: 10px;
   margin-bottom: 30px;
   text-decoration: none;
   color: black;
+}
+.App-link-adjust.dark-theme {
+  color: #2596be;
 }
 
 @media (min-width: 40px) and(max-width: 375px) {

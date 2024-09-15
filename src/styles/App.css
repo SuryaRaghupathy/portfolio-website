@@ -203,7 +203,7 @@ body {
   }
   .common-container {
     padding: 10px;
-    min-height: 85vh;
+    min-height: 40vh;
   }
   .main-container {
     display: flex;
@@ -224,7 +224,7 @@ body {
   }
   .common-container {
     padding: 10px;
-    min-height: 85vh;
+    min-height: 40vh;
   }
   .main-container {
     display: flex;
@@ -246,7 +246,7 @@ body {
   .common-container {
     padding: 15px;
 
-    min-height: 90vh;
+    min-height: 40vh;
   }
   .main-container {
     display: flex;
@@ -270,7 +270,7 @@ body {
   }
   .common-container {
     padding: 10px;
-    min-height: 71vh;
+    min-height: 40vh;
   }
   .main-container {
     display: flex;
@@ -289,7 +289,7 @@ body {
   }
   .common-container {
     padding: 10px;
-    min-height: 71vh;
+    min-height: 40vh;
   }
   .main-container {
     display: flex;
@@ -309,7 +309,7 @@ body {
   }
   .common-container {
     padding: 20px;
-    min-height: 60vh;
+    min-height: 40vh;
   }
   .main-container {
     display: flex;
@@ -330,7 +330,7 @@ body {
   }
   .common-container {
     padding: 20px;
-    min-height: 60vh;
+    min-height: 40vh;
   }
   .main-container {
     display: flex;
@@ -352,7 +352,7 @@ body {
   }
   .common-container {
     padding: 25px;
-    min-height: 82vh;
+    min-height: 40vh;
   }
   .right-container {
     margin-top: 110%;
@@ -368,7 +368,7 @@ body {
   }
   .common-container {
     padding: 25px;
-    min-height: 82.2vh;
+    min-height: 40vh;
   }
   .right-container {
     margin-top: 100%;
